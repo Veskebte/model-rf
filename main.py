@@ -67,7 +67,7 @@ def predict_heart_disease():
 
         # Generate prediction result
         if prediction[0] == 1:
-            result = f"You have a higher likelihood of heart disease. The probability is {probability_positive:.2f}%."
+            result = f"You have a higher likelihood of heart disease."
         else:
             result = "You are at low risk for heart disease."
 
