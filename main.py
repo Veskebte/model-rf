@@ -42,19 +42,21 @@ def predict_heart_disease():
 
         # Create DataFrame for prediction
         input_data = pd.DataFrame([{
-            "age": data['age'],
-            "sex": data['sex'],
-            "cp": data['cp'],
-            "trestbps": data['trestbps'],
-            "chol": data['chol'],
-            "fbs": data['fbs'],
-            "restecg": data['restecg'],
-            "thalach": data['thalach'],
-            "exang": data['exang'],
-            "oldpeak": data['oldpeak'],
-            "slope": data['slope'],
-            "ca": data['ca'],
-            "thal": data['thal'],
+            # "age": data['age'],
+            # "sex": data['sex'],
+            # "cp": data['cp'],
+            # "trestbps": data['trestbps'],
+            # "chol": data['chol'],
+            # "fbs": data['fbs'],
+            # "restecg": data['restecg'],
+            # "thalach": data['thalach'],
+            # "exang": data['exang'],
+            # "oldpeak": data['oldpeak'],
+            # "slope": data['slope'],
+            # "ca": data['ca'],
+            # "thal": data['thal'],
+
+            field: data[field] for field in required_fields
         }])
 
         # Perform prediction
@@ -66,10 +68,11 @@ def predict_heart_disease():
         probability_positive = probabilities[0][1] * 100
 
         # Generate prediction result
-        if prediction[0] == 1:
-            result = f"You have a higher likelihood of heart disease."
-        else:
-            result = "You are at low risk for heart disease."
+        # if prediction[0] == 1:
+        #     result = f"You have a higher likelihood of heart disease."
+        # else:
+        #     result = "You are at low risk for heart disease."
+        result = "High likelihood of heart disease." if prediction[0] == 1 else "Low ris of heart disease."
 
         # Return JSON response
         return jsonify({
